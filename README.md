@@ -2,13 +2,31 @@
 
  ![Node.js CI](https://github.com/ryuphi/astrology-api/workflows/Node.js%20CI/badge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/ryuphi/astrology-api/badge.svg)](https://coveralls.io/github/ryuphi/astrology-api) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/ryuphi/astrology-api?label=version)
 
-## Deploy to Netlify
+## Deployment
 
-This API is configured for easy deployment to Netlify as a serverless function.
+**⚠️ Important:** This API uses the `sweph` native module which requires specific deployment platforms.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
+### 🚀 Quick Deploy
 
-For detailed deployment instructions, see [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md).
+**[Start Here: QUICK_START.md →](./QUICK_START.md)**
+
+### Recommended Platforms
+
+1. **Railway** (Easiest) - [Guide](./RAILWAY_DEPLOYMENT.md)
+   - ✅ Zero configuration
+   - ✅ Native modules work perfectly
+   - 💰 ~$5-10/month
+
+2. **Vercel** (Free Tier) - [Guide](./VERCEL_DEPLOYMENT.md)
+   - ✅ Minimal configuration
+   - ✅ Good native module support
+   - 💰 Free tier available
+
+### 📚 More Info
+
+- **[Compare All Options](./DEPLOYMENT_OPTIONS.md)** - Detailed comparison
+- **[What Happened?](./WHAT_HAPPENED.md)** - Why Netlify doesn't work
+- **[Technical Details](./NATIVE_MODULE_ISSUE.md)** - GLIBC issue explanation
 
 ## Getting started
 

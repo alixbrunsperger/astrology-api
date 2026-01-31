@@ -2,17 +2,20 @@
   command = "npm install"
   functions = "netlify/functions"
   publish = "."
+  # Use focal build image (Ubuntu 20.04) which has better compatibility with Lambda
+  base = "focal"
 
 [build.environment]
   # Specify Python version for node-gyp (sweph native compilation)
   PYTHON_VERSION = "3.8"
   # Use Node 18 which has better node-gyp compatibility
   NODE_VERSION = "18"
-  # Ensure npm uses the correct node-gyp configuration
-  NPM_FLAGS = "--build-from-source"
+  # Use Amazon Linux 2 build image to match Lambda runtime
+  AWS_LAMBDA_JS_RUNTIME = "nodejs18.x"
 
 [functions]
-  node_bundler = "esbuild"
+  # Use nft bundler for better native module support
+  node_bundler = "nft"
   # Include ephemeris files in the function bundle
   included_files = ["eph/**"]
 

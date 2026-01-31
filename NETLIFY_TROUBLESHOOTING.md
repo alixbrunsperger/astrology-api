@@ -1,8 +1,54 @@
 # Netlify Deployment Troubleshooting
 
+## ⚠️ IMPORTANT: Netlify Not Recommended for This API
+
+Due to native module issues (GLIBC mismatch), **we recommend using Railway or Vercel instead**:
+
+- **[Railway (Easiest) →](./RAILWAY_DEPLOYMENT.md)**
+- **[Vercel (Free Tier) →](./VERCEL_DEPLOYMENT.md)**
+- **[All Deployment Options →](./DEPLOYMENT_OPTIONS.md)**
+
+See [NATIVE_MODULE_ISSUE.md](./NATIVE_MODULE_ISSUE.md) for technical details.
+
+---
+
 ## Common Issues and Solutions
 
-### ❌ Issue: `sweph` Package Build Failure (node-gyp error)
+*(For reference if you still want to try Netlify)*
+
+### ❌ Issue: GLIBC Version Mismatch (Runtime Error)
+
+**Error Message:**
+```
+Error: /lib64/libm.so.6: version `GLIBC_2.38' not found
+(required by /var/task/node_modules/sweph/build/Release/sweph.node)
+```
+
+**Root Cause:**
+- Build environment (Ubuntu): GLIBC 2.38
+- Runtime environment (AWS Lambda): GLIBC 2.27
+- Native module compiled for newer GLIBC won't run on older version
+
+**✅ Solution:**
+**Switch to a different deployment platform:**
+
+1. **Railway (Recommended)** - Zero config, works perfectly
+   - [Railway Deployment Guide](./RAILWAY_DEPLOYMENT.md)
+
+2. **Vercel** - Free tier, good native module support
+   - [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md)
+
+3. **See all options** - Compare platforms
+   - [Deployment Options Comparison](./DEPLOYMENT_OPTIONS.md)
+
+**Why this is hard to fix on Netlify:**
+- Would require Docker-based Netlify Functions (complex setup)
+- Or rewriting the entire app without native modules (massive effort)
+- Other platforms handle this issue automatically
+
+---
+
+### ❌ Issue: `sweph` Package Build Failure (node-gyp error) - SOLVED
 
 **Error Message:**
 ```

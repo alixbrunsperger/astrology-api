@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --watch src src/index.js",
+    "netlify:dev": "netlify dev",
     "test": "ENVIRONMENT=test jest",
     "coverage": "ENVIRONMENT=test jest --coverage",
     "coveralls": "ENVIRONMENT=test jest --coverage && cat ./coverage/lcov.info | coveralls",
@@ -42,6 +43,7 @@
     "express-promise-router": "^3.0.3",
     "helmet": "^3.21.3",
     "morgan": "^1.9.1",
+    "serverless-http": "^4.0.0",
     "sweph": "^2.10.0-5"
   }
 }

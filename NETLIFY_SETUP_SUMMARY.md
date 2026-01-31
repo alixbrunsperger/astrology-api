@@ -23,7 +23,10 @@ Serverless function wrapper that:
 - Handles all incoming HTTP requests
 
 #### `.nvmrc`
-Specifies Node.js version 14 for consistent builds
+Specifies Node.js version 18 for consistent builds and better node-gyp compatibility
+
+#### `.npmrc`
+Configures npm to properly build native modules (required for sweph package)
 
 ### 3. Updated Existing Files
 
@@ -46,6 +49,13 @@ Comprehensive deployment guide including:
 - Configuration explanation
 - Troubleshooting tips
 - Local testing instructions
+
+#### `NETLIFY_TROUBLESHOOTING.md`
+Detailed troubleshooting guide for common issues, especially:
+- sweph native module compilation errors
+- node-gyp build failures
+- Python version compatibility issues
+- Other common deployment problems
 
 #### `DEPLOYMENT_CHECKLIST.md`
 Interactive checklist to ensure everything is ready before deployment
@@ -155,6 +165,13 @@ The Swiss Ephemeris data files in `eph/` directory are **critical** for your API
 - Already present in your repository
 - Configured to be included in Netlify Functions via `netlify.toml`
 - Total size: ~1.9 MB (within Netlify limits)
+
+### Native Module Compilation (sweph)
+The `sweph` package contains native C++ code that needs to be compiled during deployment:
+- Configured to use Node.js 18.x (better node-gyp compatibility)
+- Python 3.8 specified in netlify.toml (required for node-gyp)
+- `.npmrc` ensures proper native module builds
+- If you encounter build errors, see `NETLIFY_TROUBLESHOOTING.md`
 
 ### Function Limits
 - **Free tier timeout:** 10 seconds per function execution

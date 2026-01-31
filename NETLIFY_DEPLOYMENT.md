@@ -88,6 +88,14 @@ If you need to add environment variables:
 
 ## Troubleshooting
 
+### Build failures with sweph package
+If you encounter `node-gyp` or `sweph` compilation errors, see [NETLIFY_TROUBLESHOOTING.md](./NETLIFY_TROUBLESHOOTING.md) for detailed solutions.
+
+The repository is configured with:
+- Node.js 18.x (for better node-gyp compatibility)
+- Python 3.8 (specified in netlify.toml)
+- Proper npm configuration for native modules
+
 ### Function not working
 - Check the Netlify Functions log in the Netlify UI
 - Ensure all dependencies are in `package.json` (not devDependencies)
@@ -97,10 +105,7 @@ If you need to add environment variables:
 - Ensure the `eph/` directory is committed to your repository
 - Check that `included_files = ["eph/**"]` is in `netlify.toml`
 
-### Build failures
-- Check that Node version matches (14.x or higher)
-- Ensure all dependencies install correctly
-- Review build logs in Netlify UI
+For more troubleshooting help, see [NETLIFY_TROUBLESHOOTING.md](./NETLIFY_TROUBLESHOOTING.md)
 
 ## Local Testing with Netlify CLI
 

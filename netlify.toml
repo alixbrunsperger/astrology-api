@@ -3,6 +3,14 @@
   functions = "netlify/functions"
   publish = "."
 
+[build.environment]
+  # Specify Python version for node-gyp (sweph native compilation)
+  PYTHON_VERSION = "3.8"
+  # Use Node 18 which has better node-gyp compatibility
+  NODE_VERSION = "18"
+  # Ensure npm uses the correct node-gyp configuration
+  NPM_FLAGS = "--build-from-source"
+
 [functions]
   node_bundler = "esbuild"
   # Include ephemeris files in the function bundle

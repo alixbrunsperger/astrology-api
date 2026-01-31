@@ -38,6 +38,7 @@ curl "https://YOUR-SITE-NAME.netlify.app/horoscope?time=1991-07-06T20:50:00.000Z
 ## 📝 Need More Info?
 
 - **Full deployment guide:** [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md)
+- **Troubleshooting guide:** [NETLIFY_TROUBLESHOOTING.md](./NETLIFY_TROUBLESHOOTING.md) ⚠️ If build fails
 - **Deployment checklist:** [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)
 - **Setup summary:** [NETLIFY_SETUP_SUMMARY.md](./NETLIFY_SETUP_SUMMARY.md)
 
